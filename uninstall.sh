@@ -3,7 +3,7 @@
 INSTALL_DIR=/usr/local/bin
 SCRIPT_NAME=locationchanger
 LAUNCH_AGENTS_DIR=$HOME/Library/LaunchAgents
-PLIST_NAME=$LAUNCH_AGENTS_DIR/LocationChanger.plist
+PLIST_NAME=$LAUNCH_AGENTS_DIR/de.lisanet.LocationChanger.plist
 
 echo "This will uninstall LocationChanger and its config files and scripts from your Mac.\n"
 echo "Are you sure to uninstall LocationChanger (y/n)?"
@@ -13,6 +13,7 @@ if [ "$reply" != "y" ]; then
     exit
 fi
 
+echo "Please enter your admin password to delete LocationChanger from /usr/local/bin"
 sudo rm "$INSTALL_DIR/$SCRIPT_NAME"
 
 USERID=$SUDO_UID
