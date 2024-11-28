@@ -35,8 +35,7 @@ parse_config() {
 }
 
 # get the SSID of the current Wi-Fi network
-#SSID=$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep ' SSID' | cut -d : -f 2- | sed 's/^[ ]*//')
-DEVICE=$(networksetup -listallhardwareports | |  awk '/Wi-Fi/{getline; print $2}')
+DEVICE=$(networksetup -listallhardwareports |  awk '/Wi-Fi/{getline; print $2}')
 SSID=$(ipconfig getsummary $DEVICE | awk '/ SSID/ {print $3}')
 
 # get the currently selected Location
@@ -105,7 +104,7 @@ fi
 if [ "${NEW_LOCATION}" != "" ]; then
     if [ "${NEW_LOCATION}" != "${CURRENT_LOCATION}" ]; then
         ts "Changing the Location to '${NEW_LOCATION}'"
-        ts $(scselect "${NEW_LOCATION}")
+        ts "scselect:" $(scselect "${NEW_LOCATION}")
         if [ ${?} -ne 0 ]; then
             NOTIFICATION_STRING="Something went wrong trying to automatically switch Location. Please consult the log at: ${LOGFILE}"
         fi
