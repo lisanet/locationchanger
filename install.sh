@@ -54,7 +54,7 @@ cat > "$PLIST_NAME" << EOT
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>de.lisanet.locationchanger</string>
+    <string>de.lisanet.LocationChanger</string>
     <key>ProgramArguments</key>
     <array>
         <string>$INSTALL_DIR/$SCRIPT_NAME</string>
