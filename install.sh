@@ -4,14 +4,22 @@ INSTALL_DIR=/usr/local/bin
 SCRIPT_NAME=locationchanger
 LAUNCH_AGENTS_DIR=$HOME/Library/LaunchAgents
 PLIST_NAME=$LAUNCH_AGENTS_DIR/de.lisanet.LocationChanger.plist
+APP_SUPPORT_DIR="$HOME/Library/Application Support/LocationChanger"
 
+echo "This will install LocationChanger."
+echo "Proceed? (y/n)?"
+read reply
+if [ "$reply" != "y" ]; then
+    echo "Aborting nstallation."
+    exit
+fi
 
+echo "Please enter your admin password to install LocationChanger to /usr/local/bin"
 sudo mkdir -p "$INSTALL_DIR"
 sudo cp locationchanger "$INSTALL_DIR"
 sudo chmod +x "$INSTALL_DIR/$SCRIPT_NAME"
 
 # generate a default config file if it doesn't exists
-APP_SUPPORT_DIR="$HOME/Library/Application Support/LocationChanger"
 if [ ! -e "$APP_SUPPORT_DIR/LocationChanger.conf" ]; then
 mkdir -p "$APP_SUPPORT_DIR"
 
@@ -35,6 +43,8 @@ cat > "$APP_SUPPORT_DIR/LocationChanger.conf" << EOT
 
 EOT
 fi
+
+cp uninstall.sh "$APP_SUPPORT_DIR"
 
 mkdir -p "$LAUNCH_AGENTS_DIR"
 
@@ -60,3 +70,9 @@ EOT
 USERID=$SUDO_UID
 [ -z "$USERID" ] && USERID=$UID
 launchctl bootstrap gui/$USERID "$PLIST_NAME"
+
+echo "Installation successfull."
+echo
+echo "If you want to unsintall LocationChanger, run the uninstall script by typing"
+echo "zsh $APP_SUPPORT_DIR/uninstall.h"
+echo
