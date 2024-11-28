@@ -4,13 +4,17 @@
 based on the name of the Wi-Fi network or a manually configured Location. It can also run a custom script to perform
 additional actions when changing the Location.
 
+## System Requirements
 
-## Installation & Updates
+Location Changer was updated and tested to run under macOS 14 and newer, but it should also work on older versions.
 
-Download the zip file and unzip it, if not already done automatically. Open Terminal.app and cd to the directory where you donwloaded the zip file. This is usually `$HOME/Downloads`. Then type
+
+## Installation
+
+Click on the `Code` button, download the zip file and unzip it, if not already done automatically. Open Terminal.app and cd to the directory where you donwloaded the zip file. This is usually `$HOME/Downloads`. Then type
 
 ```
-cd LocationChanger
+cd locationchanger-master
 zsh install.sh
 ```
 
