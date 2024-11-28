@@ -1,7 +1,5 @@
 # Location Changer
 
-*Please note, this is a fork of the original [Location Changer](https://github.com/eprev/locationchanger) by Anton Eprev*
-
 *Location Changer* automatically changes the macOS [network location](https://support.apple.com/en-us/HT202480)
 based on the name of the Wi-Fi network or a manually configured Location. It can also run a custom script to perform
 additional actions when changing the Location.
