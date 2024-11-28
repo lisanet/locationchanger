@@ -9,11 +9,14 @@ additional actions when changing the Location.
 
 ## Installation & Updates
 
+Download the zip file and unzip it, if not already done automatically. Open Terminal.app and cd to the directory where you donwloaded the zip file. This is usually `$HOME/Downloads`. Then type
+
 ```
-curl -L https://github.com/lisanet/locationchanger/raw/master/locationchanger.sh | bash
+cd LocationChanger
+zsh install.sh
 ```
 
-You must be an Administrator to install *Location Changer* and it will ask you for your password.
+You must be admin to install *Location Changer* and it will ask you for your password.
 The `locationchanger` executable is installed in `/usr/local/bin` by default. If you would like
 to install it elsewhere, please download the source and edit the `INSTALL_DIR` variable (on Line 3)
 prior to installation.
@@ -135,3 +138,13 @@ Sample output:
 [2018-03-05 06:23:18] CurrentSet updated to 3BA418DE-3C72-2EAB-A8A6-B71C42189204 (DHCP)
 [2018-03-05 06:23:19] Running script: '/Users/username/.locations/DHCP'
 ```
+
+## Uninstall Location Changer
+
+To uinstall Location Changer open Terminal.app and type
+
+```bash
+zsh "$HOME/Library/Application Support/LocationChanger/uninstall.sh"
+````
+
+and enter your admin password.
